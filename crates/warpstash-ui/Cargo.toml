@@ -1,0 +1,20 @@
+[package]
+name = "warpstash-ui"
+description = "WarpStash Rofi-style clipboard picker UI"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "warpstash-ui"
+path = "src/main.rs"
+
+[dependencies]
+warpstash-common = { path = "../warpstash-common" }
+iced = { workspace = true }
+iced_layershell = { workspace = true }
+hyprland = { workspace = true }
+wl-clipboard-rs = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+anyhow = { workspace = true }

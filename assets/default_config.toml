@@ -1,0 +1,70 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# WarpStash — Default Configuration
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# This file is baked into the WarpStash binary as a fallback.
+# To customize, copy to: ~/.config/warpstash/config.toml
+#
+# Any key you omit will use the default value shown here.
+
+# ─── General ──────────────────────────────────────────────────────────────
+[general]
+# Maximum number of clipboard entries to retain. When exceeded, the oldest
+# unpinned entry is evicted. Pinned entries are never evicted.
+max_history = 1000
+
+# Skip storing a copy event if its content hash matches the most recent
+# entry. This also prevents re-storing entries pasted back by the UI.
+deduplicate = true
+
+# ─── Daemon ───────────────────────────────────────────────────────────────
+[daemon]
+# Also watch the primary (middle-click) selection, not just the clipboard.
+watch_primary_selection = false
+
+# Store image clipboard entries (PNG, JPEG, BMP, GIF).
+store_images = true
+
+# Maximum size in bytes for a single image entry. Larger images are silently
+# discarded. Default: 10 MiB.
+max_image_bytes = 10_485_760
+
+# ─── UI ───────────────────────────────────────────────────────────────────
+[ui]
+# Popup dimensions in logical pixels.
+width = 680
+height = 520
+
+# Corner radius for the popup container.
+border_radius = 12.0
+
+# Window opacity. Values < 1.0 allow compositor blur to show through.
+opacity = 0.92
+
+# Number of text lines to preview per clipboard entry row.
+preview_lines = 3
+
+# ─── Theme: "Cosmic Dawn" ────────────────────────────────────────────────
+# A deep-space palette with cyan, purple, and warm dawn-red accents.
+[theme]
+background = "#0D0B1A"    # Deep space — main popup background
+surface = "#1A1730"       # Card / row background
+surface_hover = "#2A2545" # Row background on hover / selection
+primary = "#00E5CC"       # Cyan — primary accent, search cursor, highlights
+secondary = "#7C3AED"     # Deep purple — secondary accent, badges
+accent = "#FF6B4A"        # Dawn red   — destructive actions, pin indicator
+text = "#E8E6F0"          # Primary text color
+text_dim = "#8B87A3"      # Secondary / muted text
+border = "#2E2A45"        # Subtle borders and separators
+selected = "#00E5CC22"    # Selection highlight with transparency
+
+# ─── Keybindings ──────────────────────────────────────────────────────────
+# Single-character keys for the keyboard-driven interface.
+[keys]
+scroll_up = "k"   # Vim-style up
+scroll_down = "j" # Vim-style down
+select = "Return" # Paste selected entry into clipboard and close
+delete = "d"      # Delete the selected entry
+search = "/"      # Toggle search / filter mode
+quit = "Escape"   # Close the popup without pasting
+pin = "p"         # Pin / unpin entry (pinned entries are never evicted)

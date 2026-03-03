@@ -1,0 +1,53 @@
+[workspace]
+members = [
+    "crates/warpstash-common",
+    "crates/warpstashd",
+    "crates/warpstash-ui",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+authors = ["WarpStash Contributors"]
+repository = "https://github.com/user/WarpStash"
+
+[workspace.dependencies]
+# Shared across crates
+serde = { version = "1", features = ["derive"] }
+toml = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+rusqlite = { version = "0.32", features = ["bundled", "blob"] }
+blake3 = "1"
+image = { version = "0.25", default-features = false, features = [
+    "png",
+    "jpeg",
+    "gif",
+    "bmp",
+] }
+directories = "6"
+tokio = { version = "1", features = [
+    "rt-multi-thread",
+    "net",
+    "io-util",
+    "sync",
+    "macros",
+    "signal",
+    "fs",
+] }
+anyhow = "1"
+
+# Wayland
+wayland-client = "0.31"
+wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+wayland-protocols = { version = "0.32", features = ["client"] }
+wl-clipboard-rs = "0.9"
+
+# UI
+iced = { version = "0.14", features = ["advanced", "image"] }
+iced_layershell = "0.15"
+
+# Hyprland
+hyprland = "0.4.0-beta.3"
